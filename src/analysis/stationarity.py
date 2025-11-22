@@ -3,44 +3,46 @@ from statsmodels.tsa.stattools import adfuller
 
 def check_stationarity_adf(data, significance_level=0.05):
     """
-    Performs the Augmented Dickey-Fuller (ADF) test to check
-    if a time series is stationary (mean-reverting).
+    Performs the Augmented Dickey-Fuller (ADF) test.
     
+    H0: The series has a unit root (NON-STATIONARY)
+    H1: The series is stationary.
+
     Args:
-        data (pd.Series): The time series data to test.
-        significance_level (float): The p-value threshold.
-        
+        data (pd.Series): Time series.
+        significance_level (float): Significance threshold.
+
     Returns:
-        bool: True if the data is stationary, False otherwise.
+        dict: Results including stationarity decision.
     """
-    print("--- Running Augmented Dickey-Fuller (ADF) Test ---")
-    
-    # The adfuller() function needs clean data
+    print("\n--- Running Augmented Dickey-Fuller (ADF) Test ---")
+
     data_clean = data.dropna()
-    
-    # Run the test
-    # autolag='AIC' lets the test find the best lag
-    result = adfuller(data_clean, autolag='AIC')
-    
-    # Get the important results
-    adf_stat = result[0]
-    p_value = result[1]
-    critical_values = result[4]
-    
-    # Print a clear report
+    adf_result = adfuller(data_clean, autolag='AIC')
+
+    adf_stat = adf_result[0]
+    p_value = adf_result[1]
+    critical_values = adf_result[4]
+
     print(f"ADF Statistic: {adf_stat:.4f}")
     print(f"p-value: {p_value:.4f}")
-    
+
     print("\nCritical Values:")
     for key, value in critical_values.items():
         print(f"   {key}: {value:.4f}")
-        
-    # Give a final conclusion
+
+    print("\n--- Inference ---")
     if p_value < significance_level:
-        print(f"\nConclusion: The data is STATIONARY (p < {significance_level}).")
-        print("It is suitable for the Ornstein-Uhlenbeck model.")
-        return True
+        print(f"We REJECT the null hypothesis (p < {significance_level}).")
+        print("The series shows significant evidence of STATIONARITY.")
+        decision = True
     else:
-        print(f"\nConclusion: The data is NON-STATIONARY (p >= {significance_level}).")
-        print("It is NOT suitable for the OU model (it acts like a random walk).")
-        return False
+        print(f"We FAIL to reject the null hypothesis (p ≥ {significance_level}).")
+        decision = False
+
+    return {
+        "adf_statistic": adf_stat,
+        "p_value": p_value,
+        "critical_values": critical_values,
+        "is_stationary": decision
+    }
