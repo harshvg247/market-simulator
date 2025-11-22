@@ -66,7 +66,6 @@ class MertonJumpDiffusion(StochasticProcess):
         # N: Poisson randoms for *how many* jumps in each step
         N = np.random.poisson(lambda_j * dt, size=(num_steps - 1, n_paths))
         
-        # --- (THE FIX IS HERE) ---
         # We need the total jump size in each step.
         # If N jumps happen, the mean is N*mu_j
         # and the variance is N*sigma_j^2.
@@ -81,7 +80,6 @@ class MertonJumpDiffusion(StochasticProcess):
 
         # Generate the total log-jump size from its correct distribution
         log_jump = np.random.normal(loc=jump_mean, scale=jump_std)
-        # --- (END FIX) ---
         
         # 6. Run the simulation
         for t in range(1, num_steps):
