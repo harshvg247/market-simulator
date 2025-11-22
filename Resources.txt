@@ -1,0 +1,11 @@
+Roadmap: https://docs.google.com/document/d/1c-XKyfIBFQSWo0Q3dFclAI4F-lndUT_mz5y0EkIXaHo/edit?tab=t.0
+
+ADF Test: https://www.machinelearningplus.com/time-series/augmented-dickey-fuller-test/
+OU python implementation: https://www.quantstart.com/articles/ornstein-uhlenbeck-simulation-with-python/
+p-value: A p-value is the probability of obtaining observed results (or more extreme ones) if the null hypothesis (no effect or relationship) were true
+MLE: https://medium.com/@amannagrawall002/maximum-likelihood-estimation-parameter-estimation-technique-machine-learning-f7acb3b6ca89
+Discrete time solution of OU: https://planetmath.org/analyticsolutiontoornsteinuhlenbecksde
+
+Lognormal closed form solution of gbm: https://en.wikipedia.org/wiki/Geometric_Brownian_motion
+Merton Jump Diffusion: https://www.maxmatsuda.com/Papers/Intro/Intro%20to%20MJD%20Matsuda.pdf
+Heston model: https://repository.tudelft.nl/record/uuid:029cbbc3-d4d4-4582-8be2-e0979e9f6bc3

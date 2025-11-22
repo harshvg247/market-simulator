@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+matplotlib
+jupyterlab
+notebook
+yfinance
+tqdm
+statsmodels

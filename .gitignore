@@ -1,0 +1,77 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+
+# Distribution / build
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Python tooling caches
+.mypy_cache/
+.pytest_cache/
+.pyre/
+.pytype/
+.cache/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+.jupyter/
+jupyter_runtime/
+jupyter_cache/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Local config / secrets
+.env
+.env.* 
+credentials
+secrets.yml
+.aws/
+*.pem
+
+# Data outputs / large files
+data/
+datasets/
+outputs/
+logs/
+*.csv
+*.parquet
+*.h5
+*.db
+*.sqlite3
+
+# Test/coverage reports
+.coverage
+coverage.xml
+htmlcov/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled / binary artifacts
+*.so
+*.dll
+*.exe
+*.o
+*.pyc
+
+# Misc
+*.log
+*.bak
+*.swp
+
+# Optional: ignore VS Code Python virtual env folder created in workspace
+.python-version
